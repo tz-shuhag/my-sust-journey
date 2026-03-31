@@ -106,12 +106,11 @@ header h1 {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* Updated Date Label Styles */
 .date-label {
     font-size: 1.1rem;
     font-weight: 600;
     color: #4a5568;
-    white-space: nowrap; /* Keeps the date on a single line */
+    white-space: nowrap; 
     margin: 0 20px;
 }
 
@@ -266,7 +265,8 @@ footer {
     .timeline-item {
         width: 100%;
         padding-left: 70px;
-        padding-right: 25px;
+        /* Reduced right padding to give more width to the content box */
+        padding-right: 15px; 
         justify-content: flex-start;
     }
     
@@ -283,9 +283,14 @@ footer {
     .left .category-frustration::after, .right .category-frustration::after { border-right-color: var(--frustration); border-left-color: transparent; }
     .left .category-opportunity::after, .right .category-opportunity::after { border-right-color: var(--opportunity); border-left-color: transparent; }
 
-    /* Adjust date layout and font size specifically for mobile */
+    /* Shrink the date label and allow it to stack vertically if needed */
     .date-label {
-        font-size: 0.9rem;
+        font-size: 0.75rem; 
+        white-space: normal; 
+        text-align: center;
+        line-height: 1.2;
+        width: 50px; /* Forces it to be narrow */
+        flex-shrink: 0; /* Prevents it from disappearing */
     }
 
     .left .date-label, .right .date-label { 
@@ -294,7 +299,10 @@ footer {
         margin-right: 15px; 
     }
     
+    /* Force content box to take all remaining width */
     .left .timeline-content, .right .timeline-content { 
         order: 2; 
+        max-width: 100%;
+        width: 100%;
     }
 }
